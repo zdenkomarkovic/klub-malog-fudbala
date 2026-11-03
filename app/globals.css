@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #071a3d;
+  --color-navy-900: #0a2552;
+  --color-navy-800: #0e3173;
+  --color-brand-700: #1346b8;
+  --color-brand-600: #1a56d6;
+  --color-brand-50: #eef3fd;
+  --color-gold-500: #e5a823;
+  --color-gold-400: #f0bc47;
+  --color-gold-700: #9a6c0b;
+  --color-ink: #1b2437;
+  --color-muted: #5b667c;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-inter), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+body {
+  color: var(--color-ink);
+  background: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Tipografija za sadržaj preuzet sa starog sajta */
+.prose-kmf {
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.prose-kmf > * + * {
+  margin-top: 1.1em;
+}
+.prose-kmf h1,
+.prose-kmf h2,
+.prose-kmf h3,
+.prose-kmf h4 {
+  color: var(--color-navy-900);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 2em;
+}
+.prose-kmf h2 {
+  font-size: 1.6rem;
+}
+.prose-kmf h3 {
+  font-size: 1.3rem;
+}
+.prose-kmf h2:first-child,
+.prose-kmf h3:first-child {
+  margin-top: 0;
+}
+.prose-kmf a {
+  color: var(--color-brand-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-kmf a:hover {
+  color: var(--color-navy-900);
+}
+.prose-kmf img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.9rem;
+  margin-inline: auto;
+  box-shadow: 0 6px 24px -10px rgba(10, 37, 82, 0.35);
+}
+.prose-kmf ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.prose-kmf ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.prose-kmf li + li {
+  margin-top: 0.3em;
+}
+.prose-kmf blockquote {
+  border-left: 4px solid var(--color-gold-500);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+.prose-kmf .video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+.prose-kmf .video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.9rem;
+}
+.prose-kmf table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prose-kmf td,
+.prose-kmf th {
+  border: 1px solid #dfe5f1;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Slike u sadržaju: uzastopne slike u mreži, ujednačene visine */
+.prose-kmf img {
+  max-height: 34rem;
+  width: auto;
+}
+.prose-kmf .img-row {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.prose-kmf .img-row-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.prose-kmf .img-row-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.prose-kmf .img-row-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .prose-kmf .img-row-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.prose-kmf .img-row img {
+  width: 100%;
+  max-height: none;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Velika slika iznad reda malih slika */
+.prose-kmf .img-hero img {
+  width: 100%;
+  max-height: 32rem;
+  object-fit: cover;
+}
+.prose-kmf .img-hero + .img-row {
+  margin-top: 0.75rem;
+}
+
+/* Dve slike u redu – srednje velike, centrirane, isti razmak između slika i oko njih */
+.prose-kmf .img-row-2 {
+  max-width: 48rem;
+  margin-inline: auto;
+  gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+/* Dve slike se prikazuju cele, bez isecanja */
+.prose-kmf .img-row-2 img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+}
+.prose-kmf .img-row-2 {
+  align-items: start;
+}
+
+/* Dve slike: razmak između njih jednak je razmaku levo i desno */
+.prose-kmf .img-row-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  max-width: none;
+  margin-inline: 0;
+  gap: 0;
+}
+.prose-kmf .img-row-2 img {
+  width: 32%;
+  flex: none;
+}
+
+/* Tri slike: prikazuju se cele (bez isecanja), prelaze u novi red ako se ne uklapaju */
+.prose-kmf .img-row-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.prose-kmf .img-row-3 img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 24rem;
+  aspect-ratio: auto;
+  object-fit: contain;
+  flex: none;
+}
+
+/* Tri slike (Inkluzija): dve levo jedna ispod druge, portretna (pehari) desno iste ukupne visine */
+@media (min-width: 768px) {
+  .prose-kmf .img-row-3 {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 13.5rem 13.5rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .prose-kmf .img-row-3 img {
+    max-height: none;
+    max-width: none;
+  }
+  .prose-kmf .img-row-3 img:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    height: 13.5rem;
+  }
+  .prose-kmf .img-row-3 img:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    height: 13.5rem;
+  }
+  .prose-kmf .img-row-3 img:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 28rem;
+  }
+}
+
+/* Video snimci */
+.prose-kmf video {
+  width: 100%;
+  max-height: 32rem;
+  border-radius: 0.9rem;
+  background: #000;
+}
+.prose-kmf .video-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.prose-kmf .video-row > * + * {
+  margin-top: 0;
+}
+
+/* Slike koje se otvaraju u uvećanom prikazu */
+.prose-kmf img,
+[data-lightbox] img {
+  cursor: zoom-in;
+}
+.prose-kmf a img {
+  cursor: pointer;
+}
