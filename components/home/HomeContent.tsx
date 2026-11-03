@@ -249,31 +249,34 @@ export function HomeContent({ lang }: { lang: Lang }) {
 
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-navy-950 text-white">
-        <Image
-          src={`${UP}/2020/12/skola-malog-fudbala-futsal21-kragujevac-008-1024x512.jpg`}
-          alt={c.hero.imgAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-[70%_center] md:object-right"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/20 max-md:from-navy-950/90 max-md:via-navy-950/80 max-md:to-navy-950/70" />
-        <div className="mx-auto max-w-7xl px-5 pb-28 pt-14 sm:pb-36 sm:pt-20">
+        {/* Telefon: slika cela u širini, ispod teksta (bez isecanja). Računar: pozadina preko celog hero-a. */}
+        <div className="absolute inset-x-0 bottom-16 -z-20 aspect-[2/1] md:inset-0 md:bottom-0 md:aspect-auto">
+          <Image
+            src={`${UP}/2020/12/skola-malog-fudbala-futsal21-kragujevac-008-1024x512.jpg`}
+            alt={c.hero.imgAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover md:object-right max-md:[mask-image:linear-gradient(to_bottom,transparent,black_30%)]"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/20 max-md:hidden" />
+        <div className="mx-auto max-w-7xl px-5 pb-[calc(50vw+3.5rem)] pt-14 sm:pt-20 md:pb-36">
           <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-gold-400">{c.hero.eyebrow}</p>
-          <h1 className="mt-3 max-w-xl text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-6xl">
+          <h1 className="mt-3 max-w-xl text-[2rem] font-extrabold leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-6xl">
             {c.hero.l1} <br />
             {c.hero.l2}
             <br />
             <span className="text-gold-400">{c.hero.l3}</span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/85">{c.hero.text}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <p className="mt-4 max-w-lg text-[0.95rem] leading-relaxed text-white/85 sm:mt-6 sm:text-lg">{c.hero.text}</p>
+          <div className="mt-5 flex flex-wrap gap-4 sm:mt-8">
             <ButtonLink href={t.enrollHref}>{t.common.enrollBtn}</ButtonLink>
             <ButtonLink href={c.hero.moreHref} variant="outline-light" arrow={false}>
               {c.hero.more}
             </ButtonLink>
           </div>
-          <p className="mt-10 max-w-xs -rotate-6 font-display text-2xl font-bold italic leading-tight text-white/90 md:absolute md:bottom-32 md:right-10 md:mt-0">
+          <p className="mt-4 max-w-xs -rotate-6 font-display text-xl font-bold italic sm:text-2xl leading-tight text-white/90 md:absolute md:bottom-32 md:right-10 md:mt-0">
             {c.hero.slogan1}
             <br />
             {c.hero.slogan2}
