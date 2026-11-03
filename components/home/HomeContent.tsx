@@ -18,7 +18,6 @@ import {
   UsersIcon,
 } from "@/components/ui/Icons";
 import { PostCard } from "@/components/home/PostCard";
-import { ContactForm } from "@/components/home/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 const UP = "/wp-content/uploads";
@@ -113,6 +112,8 @@ const COPY = {
       title: "Upis u klub",
       text: "U klubu treniraju učenici uzrasta od 5 do 14 godina. Javite nam se telefonom ili putem forme i rado ćemo vam pomoći oko upisa i termina treninga.",
       guide: "Preuzmite vodič za roditelje",
+      call: "Pozovite nas",
+      labels: ["Telefon", "Email", "Adresa"],
     },
     partners: "Partneri i sponzori",
   },
@@ -197,6 +198,8 @@ const COPY = {
       title: "Join the club",
       text: "Pupils aged 5 to 14 train in the club. Call us or use the form and we will gladly help you with enrollment and the training schedule.",
       guide: "Download the guide for parents",
+      call: "Call us",
+      labels: ["Phone", "Email", "Address"],
     },
     partners: "Partners and sponsors",
   },
@@ -440,33 +443,44 @@ export function HomeContent({ lang }: { lang: Lang }) {
 
       {/* UPIS + KONTAKT */}
       <section id="upis" className="mx-auto mt-20 max-w-7xl px-5">
-        <div className="grid gap-10 rounded-3xl bg-navy-900 p-8 text-white sm:p-12 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-gold-400">{c.enroll.eyebrow}</p>
-            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">{c.enroll.title}</h2>
-            <p className="mt-4 text-white/85">{c.enroll.text}</p>
-            <div id="kontakt" className="mt-8 space-y-4">
-              <p className="flex items-center gap-3">
-                <PhoneIcon className="h-6 w-6 text-gold-400" />
-                <a href={`tel:${CLUB.phoneHref}`} className="font-bold hover:text-gold-400">{CLUB.phone}</a>
-              </p>
-              <p className="flex items-center gap-3">
-                <MailIcon className="h-6 w-6 text-gold-400" />
-                <a href={`mailto:${CLUB.email}`} className="break-all font-bold hover:text-gold-400">{CLUB.email}</a>
-              </p>
-              <p className="flex items-center gap-3">
-                <PinIcon className="h-6 w-6 text-gold-400" />
-                <span className="font-bold">{CLUB.legalName}, {CLUB.city}</span>
-              </p>
+        <div className="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 p-8 text-white shadow-xl sm:p-12">
+          <div aria-hidden className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-gold-500/10 blur-3xl" />
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-gold-400">{c.enroll.eyebrow}</p>
+              <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">{c.enroll.title}</h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-white/85">{c.enroll.text}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <ButtonLink href={`tel:${CLUB.phoneHref}`} arrow={false}>
+                  {c.enroll.call}
+                </ButtonLink>
+                <ButtonLink href={`${UP}/2020/12/vodic-za-igrace-i-roditelje-kmf21.pdf`} variant="outline-light" arrow={false}>
+                  {c.enroll.guide}
+                </ButtonLink>
+              </div>
             </div>
-            <div className="mt-8">
-              <ButtonLink href={`${UP}/2020/12/vodic-za-igrace-i-roditelje-kmf21.pdf`} variant="outline-light">
-                {c.enroll.guide}
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="rounded-2xl bg-white p-6 text-ink sm:p-8">
-            <ContactForm lang={lang} />
+
+            <ul id="kontakt" className="grid gap-3">
+              {[
+                { Icon: PhoneIcon, label: c.enroll.labels[0], value: CLUB.phone, href: `tel:${CLUB.phoneHref}` },
+                { Icon: MailIcon, label: c.enroll.labels[1], value: CLUB.email, href: `mailto:${CLUB.email}` },
+                { Icon: PinIcon, label: c.enroll.labels[2], value: `${CLUB.legalName}, ${CLUB.city}`, href: undefined },
+              ].map(({ Icon, label, value, href }) => (
+                <li key={label} className="flex items-center gap-4 rounded-2xl bg-white/10 p-4 ring-1 ring-white/15 backdrop-blur">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-500 text-navy-950">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs font-bold uppercase tracking-wider text-white/60">{label}</span>
+                    {href ? (
+                      <a href={href} className="block break-words font-bold hover:text-gold-400">{value}</a>
+                    ) : (
+                      <span className="block font-bold">{value}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
