@@ -15,6 +15,9 @@ const EN_TO_SR: Record<string, string> = Object.fromEntries(
 const U = "/wp-content/uploads";
 const HERO_POSITION: Record<string, string> = { takmicanje: "center top", inkluzija: "center top" };
 
+// Pozicija mobilne slike (podiže sliku da se vidi više donjeg dela)
+const HERO_MOBILE_POSITION: Record<string, string> = { inkluzija: "center 64%" };
+
 const HERO_IMAGES: Record<string, { desktop: string; mobile?: string }> = {
   "o-klubu": { desktop: `${U}/2020/11/pozadina5a.jpg`, mobile: `${U}/2020/11/pozadina5mobile.jpg` },
   "o-malom-fudbalu": { desktop: `${U}/2020/12/pozadina9.jpg`, mobile: `${U}/2020/12/pozadina9mobile.jpg` },
@@ -61,6 +64,7 @@ export function ContentPage({ slug }: { slug: string }) {
         image={HERO_IMAGES[key]?.desktop ?? toLocal(page.meta.ogImage)}
         mobileImage={HERO_IMAGES[key]?.mobile}
         imagePosition={HERO_POSITION[key]}
+        mobileImagePosition={HERO_MOBILE_POSITION[key]}
         bright={key in HERO_IMAGES}
         animated={animated}
       />

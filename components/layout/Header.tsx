@@ -110,7 +110,7 @@ export function Header() {
               </li>
             ))}
             <li className="pt-2">
-              <ButtonLink href={t.enrollHref} className="w-full">
+              <ButtonLink href={t.enrollHref} className="w-full" onClick={() => setOpen(false)}>
                 {t.enroll}
               </ButtonLink>
             </li>

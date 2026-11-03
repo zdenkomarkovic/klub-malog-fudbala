@@ -17,12 +17,14 @@ export function ButtonLink({
   variant = "gold",
   className,
   arrow = true,
+  onClick,
 }: {
   href: string;
   children: React.ReactNode;
   variant?: Variant;
   className?: string;
   arrow?: boolean;
+  onClick?: () => void;
 }) {
   const external = /^(https?:|mailto:|tel:)/.test(href);
   const cls = cn(
@@ -40,12 +42,13 @@ export function ButtonLink({
     <a
       href={href}
       className={cls}
+      onClick={onClick}
       {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {content}
     </a>
   ) : (
-    <Link href={href} className={cls}>
+    <Link href={href} className={cls} onClick={onClick}>
       {content}
     </Link>
   );

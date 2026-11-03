@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 /** Ista visina hero sekcije na svim stranicama osim početne. */
-const HEIGHT = "h-48 sm:h-60 lg:h-72";
+const HEIGHT = "h-72 sm:h-60 lg:h-72";
 
 export function PageHero({
   title,
@@ -9,6 +9,7 @@ export function PageHero({
   image,
   mobileImage,
   imagePosition,
+  mobileImagePosition,
   bright = false,
   animated,
   children,
@@ -20,6 +21,8 @@ export function PageHero({
   mobileImage?: string | null;
   /** CSS object-position za hero sliku, npr. "center top". */
   imagePosition?: string;
+  /** CSS object-position za mobilnu sliku. */
+  mobileImagePosition?: string;
   /** Slika je jasno vidljiva (kao hero na početnoj), a ne samo zatamnjena pozadina. */
   bright?: boolean;
   /** Animirana pozadina (GIF) sa originalnog sajta: desktop i mobilna verzija. */
@@ -32,28 +35,22 @@ export function PageHero({
     >
       {animated ? (
         <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={animated.mobile}
-            alt=""
-            className="absolute inset-0 -z-[5] h-full w-full object-cover opacity-40 md:hidden"
-          />
-          {/* Desktop: animacija u desnom delu, u okviru širine stranice (max-w-7xl) */}
-          <div className="absolute inset-0 -z-[5] hidden md:block">
+          {/* Animacija (ista vodoravna verzija na svim ekranima), u okviru širine stranice (max-w-7xl) */}
+          <div className="absolute inset-0 -z-[5]">
             <div className="mx-auto flex h-full max-w-7xl justify-end px-5">
-              <div className="h-full max-w-[70%] overflow-hidden">
+              <div className="h-full max-w-[70%] overflow-hidden max-md:max-w-full">
                 {/* scale uklanja sivi okvir GIF-a */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={animated.desktop}
                   alt=""
-                  className="h-full w-auto scale-[1.12] object-cover object-center"
+                  className="h-full w-auto scale-[1.12] object-cover object-center max-md:w-full max-md:object-contain max-md:opacity-60"
                 />
               </div>
             </div>
           </div>
-          {/* Isti overlay kao na početnoj */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/70 max-md:from-navy-950/90 max-md:via-navy-950/80 max-md:to-navy-950/70" />
+          {/* Svetliji overlay – slika ostaje vidljiva */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/40 to-transparent max-md:from-navy-950/90 max-md:via-navy-950/45 max-md:to-navy-950/15" />
         </>
       ) : (
         <>
@@ -79,13 +76,14 @@ export function PageHero({
               fill
               priority
               sizes="100vw"
+              style={mobileImagePosition ? { objectPosition: mobileImagePosition } : undefined}
               className="-z-20 object-cover md:hidden"
             />
           )}
           <div
             className={
               bright
-                ? "absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/50 to-navy-950/10 max-md:from-navy-950/90 max-md:via-navy-950/80 max-md:to-navy-950/70"
+                ? "absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/40 to-transparent max-md:from-navy-950/90 max-md:via-navy-950/45 max-md:to-navy-950/15"
                 : "absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-800/60"
             }
           />
