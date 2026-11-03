@@ -31,7 +31,7 @@ export function PageHero({
 }) {
   return (
     <section
-      className={`relative isolate flex items-center overflow-hidden text-white ${animated ? "" : "bg-navy-950"} ${HEIGHT}`}
+      className={`relative isolate flex items-center overflow-hidden text-white bg-navy-950 ${HEIGHT}`}
     >
       {animated ? (
         <>
@@ -50,7 +50,7 @@ export function PageHero({
             </div>
           </div>
           {/* Svetliji overlay – slika ostaje vidljiva */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/40 to-transparent max-md:from-navy-950/90 max-md:via-navy-950/45 max-md:to-navy-950/15" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-900/90 to-navy-800/60" />
         </>
       ) : (
         <>

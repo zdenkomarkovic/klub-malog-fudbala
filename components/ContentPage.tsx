@@ -13,7 +13,7 @@ const EN_TO_SR: Record<string, string> = Object.fromEntries(
 
 /** Hero slike sa originalnog sajta (Elementor pozadine sekcija). */
 const U = "/wp-content/uploads";
-const HERO_POSITION: Record<string, string> = { takmicanje: "center top", inkluzija: "center top" };
+const HERO_POSITION: Record<string, string> = { takmicanje: "center 12%", inkluzija: "center top" };
 
 // Pozicija mobilne slike (podiže sliku da se vidi više donjeg dela)
 const HERO_MOBILE_POSITION: Record<string, string> = { inkluzija: "center 64%" };
