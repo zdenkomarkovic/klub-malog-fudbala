@@ -1,9 +1,12 @@
+/** U tekstu biografije: [tekst](url) pravi spoljni link. */
 export interface TeamMember {
   name: string;
   role: string;
   tags: string[];
   photo: string;
   bio: string[];
+  /** Prikaži na početnoj stranici. */
+  onHome?: boolean;
 }
 
 const U = "/wp-content/uploads";
@@ -18,8 +21,8 @@ export const TEAM: TeamMember[] = [
       "Osnovne studije završava 1998. god. Diplomski rad brani na temu „Nastanak i razvoj malog fudbala u Jugoslaviji“.",
       "Od 1998. god. predaje predmet fizičko vaspitanje u OŠ „21. oktobar“ u Kragujevcu. Osnivač je Kluba malog fudbala „21.oktobar“ iz Kragujevca.",
       "Aktivno se bavio malim fudbalom. U periodu od 1980. do 2000. god. bio je učesnik više turnira i Letnje lige Večernjih novosti u malom fudbalu.",
-      "1994. godine, na poziv Srbe Stamenkovića, igrao je mali fudbal u Americi za klub San Jose Grizzlies (letnja liga, CISL).",
-      "Dao je doprinos u pisanju prve knjige o malom fudbalu kod nas „Mali fudbal“, autora Ace Kovačevića, selektora Srbije u malom fudbalu (futsalu).",
+      "1994. godine, na poziv [Srbe Stamenkovića](https://www.facebook.com/watch/?v=948641781889717), igrao je mali fudbal u Americi za klub [San Jose Grizzlies](http://en.wikipedia.org/wiki/San_Jose_Grizzlies) ([letnja liga, CISL](https://www.youtube.com/watch?v=aYmHhY9VSYg)).",
+      "Dao je doprinos u pisanju prve knjige o malom fudbalu kod nas [„Mali fudbal“, autora Ace Kovačevića](http://www.futsalplanet.com/books/book-01.asp?BooId=10), selektora Srbije u malom fudbalu (futsalu).",
     ],
   },
   {
@@ -102,11 +105,9 @@ export const TRAININGS = [
 
 export const SPONSORS = [
   { name: "Erste Bank", src: "/wp-content/uploads/2025/04/1000035970.jpg", href: "https://www.erstebank.rs/" },
-  { name: "Sunce – vrata i prozori", src: "/wp-content/uploads/2022/06/logo-sunce.jpg", href: "https://www.suncemarinkovic.com/" },
-  { name: "Grad Kragujevac", src: "/wp-content/uploads/2020/11/logo-kragujevac.jpg" },
-  { name: "Milanović", src: "/wp-content/uploads/2020/11/logo-milanovic.jpg" },
+  { name: "Sunce – vrata i prozori", src: "/sunce.jpg", href: "https://www.suncemarinkovic.com/" },
   { name: "Poslastičarnica Srce", src: "/wp-content/uploads/2020/11/logo-srce.jpg" },
   { name: "Foto Soni", src: "/wp-content/uploads/2022/08/fotosoni.jpg" },
-  { name: "Plan Invest nekretnine", src: "/wp-content/uploads/2024/05/nekretninelogo.jpg", href: "https://nekretnineplaninvest.com/" },
   { name: "Minakva", src: "/wp-content/uploads/2020/11/logo-minakva.jpg" },
+  { name: "Milmari Kopaonik", src: "/milmari_logo.jpg", href: "https://www.milmari.rs/resort/" },
 ] as const;

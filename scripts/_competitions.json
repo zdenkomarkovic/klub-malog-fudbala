@@ -1,0 +1,230 @@
+[
+ {
+  "_type": "season",
+  "_key": "s2023-2024",
+  "season": "2023/2024",
+  "intro": "Klub je u sezoni 2023/2024. sa svim svojim ekipama učestvovao u dečijem pedagoško-sportskom takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2023/2024 season, the club, with all of its teams, participated in the children's pedagogical and sports competition „League of Future Champions“.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2022-2023",
+  "season": "2022/2023",
+  "intro": "Klub je u sezoni 2022/2023. sa svim svojim ekipama učestvovao u dečijem pedagoško-sportskom takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2022/2023 season, the club, with all of its teams, participated in the children's pedagogical and sports competition „League of Future Champions“.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2021-2022",
+  "season": "2021/2022",
+  "intro": "U 2021/2022. sportskoj sezoni klub je sa svim svojim ekipama učestvovao u takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2021/2022 sports season, the club and all of its teams participated in the „Future Champions League“ competition.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2020-2021",
+  "season": "2020/2021",
+  "intro": "U 2020/2021. sportskoj sezoni klub je sa svim svojim ekipama učestvovao u takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2020/2021 sports season, the club and all of its teams participated in the „Future Champions League“ competition.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2019-2020",
+  "season": "2019/2020",
+  "intro": "U 2019/2020. sportskoj sezoni klub je sa svim svojim ekipama učestvovao u takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2019/2020 sports season, the club and all of its teams participated in the „Future Champions League“ competition.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2018-2019",
+  "season": "2018/2019",
+  "intro": "U 2018/2019. sportskoj sezoni klub je, sa svim svojim ekipama, učestvovao u takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2018/2019 sports season, the club and all of its teams participated in the „Future Champions League“ competition.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2017-2018",
+  "season": "2017/2018",
+  "intro": "U 2017/2018. sportskoj sezoni klub je, sa svim svojim ekipama, učestvovao u takmičenju „Liga budućih šampiona“.",
+  "items": [],
+  "introEn": "In the 2017/2018 sports season, the club and all of its teams participated in the „Future Champions League“ competition.",
+  "itemsEn": []
+ },
+ {
+  "_type": "season",
+  "_key": "s2015-2016",
+  "season": "2015/2016",
+  "intro": "U 2015/2016. godini planirani su i realizovani sledeći sadržaji:",
+  "items": [
+   "Redovni kontinuirani treninzi",
+   "Prijateljske utakmice sa drugim sportskim klubovima",
+   "„Super liga malog fudbala 2015/2016“",
+   "Turniri i revijalni nastupi u malom fudbalu",
+   "Sportski kamp „Kopaonik 2016“ (jul 2016.)"
+  ],
+  "introEn": "In 2015/2016, the following contents were planned and held:",
+  "itemsEn": [
+   "Regular, continuous training",
+   "Friendly matches with other sports clubs",
+   "„Super Futsal League 2015/2016“",
+   "Futsal tournaments and exhibition performances at “ Kopaonik 2016″ Sports Camp (July 2016)"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2014-2015",
+  "season": "2014/2015",
+  "intro": "U 2014/2015. godini planirani su i realizovani sledeći sadržaji:",
+  "items": [
+   "Redovni kontinuirani treninzi",
+   "Prijateljske utakmice sa drugim sportskim klubovima",
+   "Revijalni nastupi u hali „Jezero“",
+   "„Fudbal fest“ liga, „Mini maxi“ liga, „Super liga malog fudbala Kragujevac“",
+   "Turniri u malom fudbalu",
+   "Sportski kamp „Kopaonik 2015.“ (jul 2015.)"
+  ],
+  "introEn": "In 2014/2015, the following contents were planned and held:",
+  "itemsEn": [
+   "Regular, continuous training",
+   "Friendly matches with other sports clubs",
+   "Exhibition performances in the „Jezero“ hall",
+   "„Football Fest“ league, „Mini maxi“ league, „Super Futsal League of Kragujevac“",
+   "Futsal tournaments",
+   "„Kopaonik 2015“ Sports Camp (July 2015)"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2013-2014",
+  "season": "2013/2014",
+  "intro": "U 2013/2014. godini realizovani su sledeći sadržaji:",
+  "items": [
+   "Redovni kontinuirani treninzi",
+   "Prijateljske utakmice sa drugim sportskim klubovima",
+   "Revijalni nastupi u hali „Jezero“",
+   "„Mini maxi“ liga, „Fudbal fest“ liga",
+   "Turniri u malom fudbalu: „Apolon kup“ (septembar), FK „Vašarište“ – „Sportom protiv dijabetesa“ (april 2014.), „Apolon kup“ (maj 2014.), „Zdravo leto u Kragujevcu“ 3:3",
+   "Sportski kamp „Kopaonik 2014.“"
+  ],
+  "introEn": "In 2013/2014, the following contents were held:",
+  "itemsEn": [
+   "Regular, continuous training",
+   "Friendly matches with other sports clubs",
+   "Exhibition performances in the „Jezero“ hall",
+   "„Mini maxi“ league, „Football fest“ league",
+   "Futsal tournaments: „Apollon Cup“ (September), FC „Vašarište“ – „With Sports Against Diabetes“ (April 2014), „Apollon Cup“ (May 2014), „Happy Summer in Kragujevac“ 3:3",
+   "„Kopaonik 2014“ Sports Camp"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2012-2013",
+  "season": "2012/2013",
+  "intro": "U 2012/2013. školskoj godini planirani su i realizovani sledeći sadržaji:",
+  "items": [
+   "Redovni, kontinuirani treninzi",
+   "Prijateljske utakmice sa drugim klubovima",
+   "Revijalni nastupi u poluvremenu seniorskog prvenstva Srbije u futsalu",
+   "Mini maxi liga"
+  ],
+  "introEn": "In 2012/2013, the following contents were planned and held during the school year:",
+  "itemsEn": [
+   "Regular, continuous training",
+   "Friendly matches with other clubs",
+   "Exhibition halftime performances in the senior futsal championship of Serbia",
+   "Mini maxi league"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2011-2012",
+  "season": "2011/2012",
+  "intro": "U 2011/2012. školskoj godini planirani su i realizovani sledeći takmičarski i revijalni sadržaji:",
+  "items": [
+   "Prijateljske utakmice sa drugim školama i klubovima",
+   "Revijalni nastupi u poluvremenu utakmica KMF „Ekonomac“ Kragujevac",
+   "Posete i praćenje međunarodnih utakmica u futsalu koje se igraju u Kragujevcu",
+   "Učešće u takmičenju „Liga budućih šampiona“",
+   "Učešće u takmičenju „Mini-maxi liga“"
+  ],
+  "introEn": "In the 2011/2012 school year, the following competition and exhibition contents were planned and realized:",
+  "itemsEn": [
+   "Friendly matches with other schools and clubs",
+   "Exhibition performances in the halftime of Futsal Club „Ekonomac“ Kragujevac",
+   "Visits to international futsal matches played in Kragujevac",
+   "Participation in the „League of Future Champions“ competition",
+   "Participation in the „Mini-maxi league“ competition"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2010-2011",
+  "season": "2010/2011",
+  "intro": "U 2010/2011. školskoj godini KMF „21.oktobar“ igrao je prijateljske utakmice sa:",
+  "items": [
+   "OŠ „Svetozar Marković“ Kragujevac",
+   "FK „Radnički“ Kragujevac",
+   "SK „Fitnes“ Kragujevac",
+   "povremeno je nastupao u revijalnom delu utakmica KMF „Ekonomac“ Kragujevac",
+   "Ispratio je dešavanja međunarodnih utakmica u futsalu"
+  ],
+  "introEn": "In the 2010/2011 school year, Futsal Club „21.oktobar“ played friendly matches with:",
+  "itemsEn": [
+   "„Svetozar Marković“ Elementary School Kragujevac",
+   "FC „Radnički“ Kragujevac",
+   "SC „Fitnes“ Kragujevac",
+   "occasionally performed in the exhibition matches of Futsal Club „Ekonomac“ Kragujevac",
+   "visited the events of international futsal matches"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2009-2010",
+  "season": "2009/2010",
+  "intro": "U 2009/2010. školskoj godini KMF „21.oktobar“ učestvovao je na sledećim takmičenjima:",
+  "items": [
+   "Prijateljske utakmice sa drugim školama (vikendom, tokom školske godine)",
+   "Turniri, konkurencija škola (određeni uzrasti, tokom školske godine)",
+   "„Mini turnir – maksi igra 2010.“ (mart 2010.)",
+   "Uskršnji turnir 2010. u malom fudbalu (april 2010.)",
+   "McDonald's street football liga (maj 2010.)"
+  ],
+  "introEn": "In the 2009/2010 school year, Futsal Club „21.oktobar“ participated in the following competitions:",
+  "itemsEn": [
+   "Friendly matches with other schools (on weekends, during the school year)",
+   "Tournaments, school competition (specific ages, during the school year)",
+   "„2010Mini tournament – maxi game“ (March 2010)",
+   "2010 Easter Futsal Tournament (April 2010)",
+   "McDonalds Street Football League (May 2010)"
+  ]
+ },
+ {
+  "_type": "season",
+  "_key": "s2008-2009",
+  "season": "2008/2009",
+  "intro": "U 2008/2009. školskoj godini KMF „21.oktobar“ postigao je sledeće plasmane:",
+  "items": [
+   "Prvo mesto na Uskršnjem turniru 2009. (konkurencija 2000. godište i mlađi)",
+   "Prvo mesto na turniru „Mladost 2009“ (konkurencija 2000. godište i mlađi)",
+   "Drugo mesto na turniru „Mladost 2009“ (konkurencija 1998. godište i mlađi)"
+  ],
+  "introEn": "In the 2008/2009 school year, Futsal Club „21.oktobar“ reached the following rankings:",
+  "itemsEn": [
+   "First place at the 2009 Easter Tournament (born in 2000 and younger)",
+   "First place at the „Youth 2009“ tournament (born in 2000 and younger)",
+   "Second place at the „Youth 2009“ tournament (born in 1998 and younger)"
+  ]
+ }
+]

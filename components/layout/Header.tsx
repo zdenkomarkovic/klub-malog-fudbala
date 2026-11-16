@@ -37,7 +37,7 @@ export function Header() {
         <Link href={home} className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <Image src={LOGO_PATH} alt={t.logoAlt} width={56} height={56} priority className="h-14 w-14" />
           <span className="font-display leading-none">
-            <span className="block text-xl font-extrabold text-navy-900">KMF 21</span>
+            <span className="block text-xl font-extrabold text-navy-900">KMF 21.</span>
             <span className="block text-[0.65rem] font-bold uppercase tracking-[0.25em] text-brand-700">Kragujevac</span>
           </span>
         </Link>
@@ -48,6 +48,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
                     "border-b-2 border-transparent py-1 text-[0.8rem] font-semibold text-navy-900 transition-colors hover:text-brand-600",
@@ -98,6 +99,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(

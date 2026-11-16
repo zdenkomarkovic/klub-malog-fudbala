@@ -1,12 +1,13 @@
-import { allPosts, postPath } from "@/lib/content";
+import { postPath } from "@/lib/content";
+import { getAllPosts } from "@/lib/news";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
-export const dynamic = "force-static";
+export const revalidate = 60;
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-export function GET() {
-  const items = allPosts
+export async function GET() {
+  const items = (await getAllPosts())
     .map(
       (p) => `<item>
 <title>${esc(p.title)}</title>

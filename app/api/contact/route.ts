@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     body: JSON.stringify({
       Messages: [
         {
-          From: { Email: SITE_MAIL_SENDER.trim(), Name: "KMF 21 sajt" },
+          From: { Email: SITE_MAIL_SENDER.trim(), Name: "KMF 21. sajt" },
           To: [{ Email: receiver.trim() }],
           ReplyTo: { Email: email, Name: name },
           Subject: `Nova poruka sa sajta – ${name}`,

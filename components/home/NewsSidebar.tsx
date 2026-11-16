@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  allPosts,
   archivePath,
   categoryPath,
   getArchives,
@@ -8,9 +7,8 @@ import {
   monthLabel,
   postPath,
 } from "@/lib/content";
+import { getAllPosts } from "@/lib/news";
 import { NewsSearch } from "@/components/home/NewsSearch";
-
-const searchItems = allPosts.map((p) => ({ title: p.title, href: postPath(p) }));
 
 function Box({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -25,7 +23,9 @@ function Box({ title, children }: { title: string; children: React.ReactNode }) 
 
 const link = "block rounded-lg px-2 py-1.5 text-sm font-semibold text-navy-900 hover:bg-brand-50 hover:text-brand-700";
 
-export function NewsSidebar() {
+export async function NewsSidebar() {
+  const allPosts = await getAllPosts();
+  const searchItems = allPosts.map((p) => ({ title: p.title, href: postPath(p) }));
   return (
     <aside aria-label="Bočna traka" className="space-y-6 lg:sticky lg:top-24 lg:self-start">
       <Box title="Pretraga">
@@ -44,7 +44,7 @@ export function NewsSidebar() {
       </Box>
       <Box title="Arhive">
         <ul className="space-y-1">
-          {getArchives().map((a) => (
+          {getArchives(allPosts).map((a) => (
             <li key={`${a.year}${a.month}`}>
               <Link href={archivePath(a.year, a.month)} className={link}>
                 {monthLabel(a.year, a.month)} <span className="font-normal text-muted">({a.count})</span>
@@ -55,7 +55,7 @@ export function NewsSidebar() {
       </Box>
       <Box title="Kategorije">
         <ul className="space-y-1">
-          {getCategories().map((c) => (
+          {getCategories(allPosts).map((c) => (
             <li key={c.slug}>
               <Link href={categoryPath(c.slug)} className={link}>
                 {c.name} <span className="font-normal text-muted">({c.count})</span>

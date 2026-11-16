@@ -1,9 +1,15 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
-import { allPages, allPosts, postPath } from "@/lib/content";
-import { NEWS_PAGES, newsPath } from "@/components/home/NewsList";
+import { allPages, postPath } from "@/lib/content";
+import { getAllPosts, getNewsPages } from "@/lib/news";
+import { newsPath } from "@/components/home/NewsList";
+import { ARCHIVE_PAGES, archivePagePath } from "@/lib/archive";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 60;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const allPosts = await getAllPosts();
+  const NEWS_PAGES = await getNewsPages();
   const pages = allPages
     .filter((p) => p.slug !== "klub-malog-fudbala-21")
     .map((p) => ({
@@ -23,11 +29,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.4,
   }));
+  const archivePages = Array.from({ length: ARCHIVE_PAGES }, (_, i) => ({
+    url: `${SITE_URL}${archivePagePath(i + 1)}`,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
   return [
     { url: `${SITE_URL}/`, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/en/`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     ...pages,
     ...newsPages,
+    ...archivePages,
     ...posts,
   ];
 }

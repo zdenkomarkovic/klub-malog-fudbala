@@ -11,6 +11,7 @@ import {
 } from "@/lib/constants";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { Lightbox } from "@/components/ui/Lightbox";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
@@ -62,11 +63,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="sr-RS" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <Header />
-        <div id="sadrzaj" className="flex-1">
+        <SiteShell header={<Header />} footer={<Footer />}>
           {children}
-        </div>
-        <Footer />
+        </SiteShell>
         <Lightbox />
       </body>
     </html>

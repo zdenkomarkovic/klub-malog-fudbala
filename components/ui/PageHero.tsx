@@ -2,6 +2,8 @@ import Image from "next/image";
 
 /** Ista visina hero sekcije na svim stranicama osim početne. */
 const HEIGHT = "h-72 sm:h-60 lg:h-72";
+/** 60% viši hero (stranica Inkluzija). */
+const HEIGHT_TALL = "h-72 sm:h-[29rem] lg:h-[34.8rem]";
 
 export function PageHero({
   title,
@@ -9,9 +11,11 @@ export function PageHero({
   image,
   mobileImage,
   imagePosition,
+  desktopImagePosition,
   mobileImagePosition,
   bright = false,
   animated,
+  tall = false,
   children,
 }: {
   title: string;
@@ -21,17 +25,21 @@ export function PageHero({
   mobileImage?: string | null;
   /** CSS object-position za hero sliku, npr. "center top". */
   imagePosition?: string;
+  /** Pozicija slike samo na desktopu (md i više); inače važi imagePosition. */
+  desktopImagePosition?: string;
   /** CSS object-position za mobilnu sliku. */
   mobileImagePosition?: string;
   /** Slika je jasno vidljiva (kao hero na početnoj), a ne samo zatamnjena pozadina. */
   bright?: boolean;
   /** Animirana pozadina (GIF) sa originalnog sajta: desktop i mobilna verzija. */
   animated?: { desktop: string; mobile: string };
+  /** 60% viši hero. */
+  tall?: boolean;
   children?: React.ReactNode;
 }) {
   return (
     <section
-      className={`relative isolate flex items-center overflow-hidden text-white bg-navy-950 ${HEIGHT}`}
+      className={`relative isolate flex items-center overflow-hidden text-white bg-navy-950 ${tall ? HEIGHT_TALL : HEIGHT}`}
     >
       {animated ? (
         <>
@@ -61,10 +69,14 @@ export function PageHero({
               fill
               priority
               sizes="100vw"
-              style={imagePosition ? { objectPosition: imagePosition } : undefined}
+              style={
+                imagePosition || desktopImagePosition
+                  ? ({ "--pos": imagePosition, "--pos-md": desktopImagePosition ?? imagePosition } as React.CSSProperties)
+                  : undefined
+              }
               className={
                 bright
-                  ? `-z-20 object-cover ${mobileImage ? "max-md:hidden" : ""}`
+                  ? `-z-20 object-cover [object-position:var(--pos,50%_50%)] md:[object-position:var(--pos-md,50%_50%)] ${mobileImage ? "max-md:hidden" : ""}`
                   : "-z-20 object-cover opacity-30"
               }
             />

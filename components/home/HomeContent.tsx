@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { allPosts } from "@/lib/content";
+import { getAllPosts } from "@/lib/news";
 import { CLUB, LOGO_PATH, SITE_URL, SOCIAL } from "@/lib/constants";
-import { SPONSORS, TEAM } from "@/lib/team";
+import { SPONSORS } from "@/lib/team";
+import { getTeam } from "@/lib/sanity";
 import { T, type Lang } from "@/lib/i18n";
 import { ButtonLink } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -25,16 +26,16 @@ const UP = "/wp-content/uploads";
 const COPY = {
   sr: {
     hero: {
-      eyebrow: "Klub malog fudbala 21",
+      eyebrow: "KLUB MALOG FUDBALA \"21.oktobar\"",
       l1: "Škola malog",
       l2: "fudbala i inkluzije",
       l3: "u Kragujevcu",
-      text: "KMF 21 je više od kluba – to je škola sporta, razvoja i zajedništva. Okupljamo decu od 5 do 14 godina kroz futsal, inkluzivne programe i zdrav način života.",
+      text: "KMF 21. je više od kluba – to je škola sporta, razvoja i zajedništva. Okupljamo decu od 5 do 14 godina kroz futsal, inkluzivne programe i zdrav način života.",
       more: "Saznaj više",
       moreHref: "/o-klubu/",
       slogan1: "Mali fudbal.",
       slogan2: "Velike mogućnosti!",
-      imgAlt: "Polaznici škole malog fudbala KMF 21 Kragujevac sa trenerima",
+      imgAlt: "Polaznici škole malog fudbala KMF 21. Kragujevac sa trenerima",
     },
     statsLabel: "Klub u brojevima",
     stats: ["polaznika", "lokacije", "godina", "inkluzivni program"],
@@ -119,16 +120,16 @@ const COPY = {
   },
   en: {
     hero: {
-      eyebrow: "Futsal Club 21",
+      eyebrow: "FUTSAL CLUB \"21.oktobar\"",
       l1: "Futsal and",
       l2: "inclusion school",
       l3: "in Kragujevac",
-      text: "KMF 21 is more than a club – it is a school of sport, development and community. We bring together children aged 5 to 14 through futsal, inclusive programmes and a healthy lifestyle.",
+      text: "KMF 21. is more than a club – it is a school of sport, development and community. We bring together children aged 5 to 14 through futsal, inclusive programmes and a healthy lifestyle.",
       more: "Learn more",
       moreHref: "/21-october-futsal-club-from-kragujevac/",
       slogan1: "Small-sided football.",
       slogan2: "Great possibilities!",
-      imgAlt: "Pupils of the KMF 21 Kragujevac futsal school with their coaches",
+      imgAlt: "Pupils of the KMF 21. Kragujevac futsal school with their coaches",
     },
     statsLabel: "The club in numbers",
     stats: ["participants", "locations", "years of age", "inclusion programme"],
@@ -208,13 +209,13 @@ const COPY = {
 const STAT_ICONS = [UsersIcon, PinIcon, ChildIcon, HeartIcon];
 const STAT_VALUES = ["100+", "3", "5–14", "40+"];
 const WHY_ICONS = [CapIcon, ChartIcon, UsersIcon];
-const TEAM_ON_HOME = ["Branislav R. Lečić", "Uroš Đusić", "Igor Jokić", "Janko Milovanović"];
 
-export function HomeContent({ lang }: { lang: Lang }) {
+export async function HomeContent({ lang }: { lang: Lang }) {
   const c = COPY[lang];
+  const teamOnHome = (await getTeam(lang)).filter((m) => m.onHome);
   const t = T[lang];
   const home = lang === "en" ? "/en/" : "/";
-  const latest = allPosts.slice(0, 3);
+  const latest = (await getAllPosts()).slice(0, 3);
 
   const schema = {
     "@context": "https://schema.org",
@@ -238,7 +239,7 @@ export function HomeContent({ lang }: { lang: Lang }) {
         email: CLUB.email,
         telephone: CLUB.phone,
         address: { "@type": "PostalAddress", addressLocality: CLUB.city, addressCountry: "RS" },
-        sameAs: [SOCIAL.facebook, SOCIAL.instagram, SOCIAL.youtube],
+        sameAs: [SOCIAL.facebook, SOCIAL.facebookSkola, SOCIAL.instagram, SOCIAL.instagramInclusion, SOCIAL.youtube],
       },
     ],
   };
@@ -252,12 +253,12 @@ export function HomeContent({ lang }: { lang: Lang }) {
         {/* Telefon: slika cela u širini, ispod teksta (bez isecanja). Računar: pozadina preko celog hero-a. */}
         <div className="absolute inset-x-0 bottom-16 -z-20 aspect-[2/1] md:inset-0 md:bottom-0 md:aspect-auto">
           <Image
-            src={`${UP}/2020/12/skola-malog-fudbala-futsal21-kragujevac-008-1024x512.jpg`}
+            src="/1000086909.png"
             alt={c.hero.imgAlt}
             fill
             priority
             sizes="100vw"
-            className="object-cover md:object-right max-md:[mask-image:linear-gradient(to_bottom,transparent,black_30%)]"
+            className="object-cover object-[50%_58%] md:object-[100%_60%] max-md:[mask-image:linear-gradient(to_bottom,transparent,black_30%)]"
           />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/20 max-md:hidden" />
@@ -325,7 +326,7 @@ export function HomeContent({ lang }: { lang: Lang }) {
         </article>
       </section>
 
-      {/* ZASTO KMF 21 */}
+      {/* ZASTO KMF 21. */}
       <section className="mx-auto mt-20 grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-[1fr_2fr]">
         <SectionHeading eyebrow={c.why.eyebrow} title={c.why.title}>
           {c.why.text}
@@ -355,7 +356,7 @@ export function HomeContent({ lang }: { lang: Lang }) {
           </div>
         </div>
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {TEAM.filter((m) => TEAM_ON_HOME.includes(m.name)).map((m) => (
+          {teamOnHome.map((m) => (
             <li key={m.name}>
               <Link href={c.team.href} className="group block overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-brand-50 transition-shadow hover:shadow-xl">
                 <div className="relative aspect-[4/5] overflow-hidden bg-brand-50">
@@ -363,7 +364,7 @@ export function HomeContent({ lang }: { lang: Lang }) {
                 </div>
                 <div className="p-3 text-center">
                   <h3 className="text-sm font-extrabold text-navy-900">{m.name}</h3>
-                  <p className="mt-0.5 text-xs text-muted">{c.team.tags[m.name]}</p>
+                  <p className="mt-0.5 text-xs text-muted">{c.team.tags[m.name] ?? m.tags[0]}</p>
                 </div>
               </Link>
             </li>
@@ -493,7 +494,7 @@ export function HomeContent({ lang }: { lang: Lang }) {
         <h2 id="partneri" className="text-xs font-extrabold uppercase tracking-[0.25em] text-navy-900">
           {c.partners}
         </h2>
-        <ul className="mt-6 grid grid-cols-2 items-center gap-4 sm:grid-cols-4 lg:grid-cols-8">
+        <ul className="mt-6 flex flex-wrap items-stretch justify-center gap-4 sm:gap-6">
           {SPONSORS.map((s) => {
             const img = (
               <Image
@@ -501,11 +502,14 @@ export function HomeContent({ lang }: { lang: Lang }) {
                 alt={s.name}
                 width={160}
                 height={90}
-                className="h-16 w-full object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0"
+                className="h-20 w-full object-contain"
               />
             );
             return (
-              <li key={s.name} className="rounded-xl bg-white p-2 ring-1 ring-brand-50">
+              <li
+                key={s.name}
+                className="flex w-[calc(50%-0.5rem)] items-center justify-center rounded-xl bg-white p-3 ring-1 ring-brand-50 sm:w-52"
+              >
                 {"href" in s && s.href ? (
                   <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name}>{img}</a>
                 ) : (

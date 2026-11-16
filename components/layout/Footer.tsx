@@ -9,7 +9,9 @@ import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, YoutubeIcon 
 
 const social = [
   { href: SOCIAL.facebook, label: "Facebook", Icon: FacebookIcon },
+  { href: SOCIAL.facebookSkola, label: "Facebook – Škola malog fudbala", Icon: FacebookIcon },
   { href: SOCIAL.instagram, label: "Instagram", Icon: InstagramIcon },
+  { href: SOCIAL.instagramInclusion, label: "Instagram – Futsal21 inkluzija", Icon: InstagramIcon },
   { href: SOCIAL.youtube, label: "YouTube", Icon: YoutubeIcon },
 ];
 
@@ -27,7 +29,7 @@ export function Footer() {
           <Link href={home} className="flex items-center gap-3">
             <Image src={LOGO_PATH} alt="" width={56} height={56} className="h-14 w-14" />
             <span className="font-display leading-none text-white">
-              <span className="block text-xl font-extrabold">KMF 21</span>
+              <span className="block text-xl font-extrabold">KMF 21.</span>
               <span className="block text-[0.65rem] font-bold uppercase tracking-[0.25em] text-gold-400">Kragujevac</span>
             </span>
           </Link>
@@ -78,7 +80,7 @@ export function Footer() {
 
         <div>
           <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-white">{t.follow}</h2>
-          <ul className="flex gap-3">
+          <ul className="flex flex-wrap gap-3">
             {social.map(({ href, label, Icon }) => (
               <li key={label}>
                 <a
@@ -86,6 +88,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
+                  title={label}
                   className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold-500 hover:text-navy-950"
                 >
                   <Icon className="h-5 w-5" />
@@ -98,7 +101,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-white/60 sm:flex-row">
-          <p>© {new Date().getFullYear()} KMF 21 Kragujevac. {t.rights}</p>
+          <p>© {new Date().getFullYear()} KMF 21. Kragujevac. {t.rights}</p>
           <p>
             {t.madeBy}{" "}
             <a

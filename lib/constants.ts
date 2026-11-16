@@ -19,6 +19,8 @@ export const CLUB = {
 export const SOCIAL = {
   facebook: "https://www.facebook.com/Futsal21-Kragujevac-škola-malog-fudbala-120160032721900",
   instagram: "https://www.instagram.com/futsal21_skola_fudbala/",
+  instagramInclusion: "https://www.instagram.com/futsal21.inkluzija/",
+  facebookSkola: "https://www.facebook.com/people/Skola-Malog-Fudbala/100029998567043/",
   youtube: "https://www.youtube.com/channel/UCAYhfFephAQNuqa2SkzyUww",
 } as const;
 

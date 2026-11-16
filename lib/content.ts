@@ -66,9 +66,9 @@ export const monthLabel = (year: string, month: string) => `${MONTHS[Number(mont
 export const archivePath = (year: string, month: string) => `/${year}/${month}/`;
 export const categoryPath = (slug: string) => `/category/${slug}/`;
 
-export function getArchives() {
+export function getArchives(posts: Post[] = allPosts) {
   const map = new Map<string, { year: string; month: string; count: number }>();
-  for (const p of allPosts) {
+  for (const p of posts) {
     const k = `${p.year}-${p.month}`;
     const e = map.get(k);
     if (e) e.count++;
@@ -77,9 +77,9 @@ export function getArchives() {
   return [...map.values()]; // allPosts je već sortiran od najnovijeg
 }
 
-export function getCategories() {
+export function getCategories(posts: Post[] = allPosts) {
   const map = new Map<string, { slug: string; name: string; count: number }>();
-  for (const p of allPosts)
+  for (const p of posts)
     for (const c of p.categories) {
       const e = map.get(c.slug);
       if (e) e.count++;

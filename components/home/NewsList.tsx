@@ -1,15 +1,14 @@
 import Link from "next/link";
-import { allPosts, type Post } from "@/lib/content";
+import type { Post } from "@/lib/content";
+import { NEWS_PER_PAGE, getAllPosts, getNewsPages } from "@/lib/news";
 import { PageHero } from "@/components/ui/PageHero";
 import { PostCard } from "@/components/home/PostCard";
 import { NewsSidebar } from "@/components/home/NewsSidebar";
 import { cn } from "@/lib/utils";
 
-export const NEWS_PER_PAGE = 9;
-export const NEWS_PAGES = Math.max(1, Math.ceil(allPosts.length / NEWS_PER_PAGE));
 export const newsPath = (page: number) => (page <= 1 ? "/vesti/" : `/vesti/strana/${page}/`);
 
-export function NewsList({
+export async function NewsList({
   page = 1,
   title = "Vesti",
   eyebrow = "Aktuelno",
@@ -21,6 +20,8 @@ export function NewsList({
   /** Ako je zadato (kategorija / arhiva), prikazuje se cela lista bez paginacije. */
   list?: Post[];
 }) {
+  const allPosts = await getAllPosts();
+  const NEWS_PAGES = await getNewsPages();
   const posts = list ?? allPosts.slice((page - 1) * NEWS_PER_PAGE, page * NEWS_PER_PAGE);
   const paginate = !list;
   const pages = Array.from({ length: NEWS_PAGES }, (_, i) => i + 1);

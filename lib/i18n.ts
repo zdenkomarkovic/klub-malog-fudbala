@@ -38,6 +38,7 @@ export const NAV = {
     { href: "/inkluzija/", label: "Inkluzija" },
     { href: "/letnji-kamp-kopaonik/", label: "Kamp" },
     { href: "/vesti/", label: "Vesti" },
+    { href: "/arhiva/", label: "Arhiva" },
     { href: "/#kontakt", label: "Kontakt" },
   ],
   en: [
@@ -48,6 +49,7 @@ export const NAV = {
     { href: "/competitions/", label: "Competitions" },
     { href: "/inclusion/", label: "Inclusion" },
     { href: "/kopaonik-summer-camp/", label: "Summer camp" },
+    { href: "/arhiva/", label: "Archive" },
     { href: "/en/#kontakt", label: "Contact" },
   ],
 } as const;
@@ -61,7 +63,7 @@ export const T = {
     closeMenu: "Zatvori meni",
     mainNav: "Glavna navigacija",
     mobileNav: "Mobilna navigacija",
-    logoAlt: "KMF 21 Kragujevac – logo kluba",
+    logoAlt: "KMF 21. Kragujevac – logo kluba",
     switchLabel: "Promeni jezik na engleski",
     footer: {
       tagline: "Škola malog fudbala i inkluzije u Kragujevcu. Sport, razvoj i zajedništvo.",
@@ -100,7 +102,7 @@ export const T = {
     closeMenu: "Close menu",
     mainNav: "Main navigation",
     mobileNav: "Mobile navigation",
-    logoAlt: "KMF 21 Kragujevac – club logo",
+    logoAlt: "KMF 21. Kragujevac – club logo",
     switchLabel: "Promeni jezik na srpski",
     footer: {
       tagline: "Futsal and inclusion school in Kragujevac. Sport, development and community.",

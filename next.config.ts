@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Stari WordPress sajt je koristio kose crte na kraju URL-a (/o-klubu/, /2026/05/27/slug/)
   trailingSlash: true,
-  images: { formats: ["image/avif", "image/webp"] },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
+  },
   async headers() {
     return [
       {

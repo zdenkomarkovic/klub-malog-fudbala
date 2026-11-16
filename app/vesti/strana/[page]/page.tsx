@@ -1,12 +1,15 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
-import { NEWS_PAGES, NewsList, newsPath } from "@/components/home/NewsList";
+import { NewsList, newsPath } from "@/components/home/NewsList";
+import { getNewsPages } from "@/lib/news";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
+export const revalidate = 60;
 
 // strana 1 je /vesti/, pa ovde idu samo strane od 2 pa nadalje
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const NEWS_PAGES = await getNewsPages();
   return Array.from({ length: Math.max(0, NEWS_PAGES - 1) }, (_, i) => ({ page: String(i + 2) }));
 }
 
@@ -24,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsPageN({ params }: Props) {
   const n = Number((await params).page);
+  const NEWS_PAGES = await getNewsPages();
   if (!Number.isInteger(n) || n < 2 || n > NEWS_PAGES) notFound();
   return <NewsList page={n} />;
 }
