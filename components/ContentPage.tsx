@@ -106,8 +106,10 @@ export async function ContentPage({ slug }: { slug: string }) {
         seasons
           .map(
             (s) =>
+              `<section class="season-block"><h3>${isEn ? "Season" : "Sezona"} ${esc(s.season)}</h3>` +
               (s.intro ? `<p>${esc(s.intro)}</p>` : "") +
-              (s.items.length ? `<ul>${s.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""),
+              (s.items.length ? `<ul>${s.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : "") +
+              `</section>`,
           )
           .join("");
     }
@@ -135,6 +137,21 @@ export async function ContentPage({ slug }: { slug: string }) {
         tall={key === "inkluzija"}
       />
       <div className="mx-auto max-w-7xl px-5 py-12 sm:py-16">
+        {key === "o-klubu" && (
+          <aside className="mb-10 flex flex-col items-center gap-4 rounded-3xl bg-navy-900 p-6 text-center text-white shadow-lg sm:flex-row sm:gap-8 sm:p-8 sm:text-left">
+            <div className="shrink-0 font-display text-5xl font-extrabold text-gold-400 sm:text-6xl">2009</div>
+            <div>
+              <h2 className="text-xl font-extrabold sm:text-2xl">
+                {isEn ? "18th season of continuous work" : "18. sezona kontinuiranog rada"}
+              </h2>
+              <p className="mt-2 text-white/85">
+                {isEn
+                  ? "The club was founded in 2009. Everything we do today builds on nearly two decades of work with children, coaches and parents."
+                  : "Klub je osnovan 2009. godine. Sve što radimo danas nadovezuje se na skoro dve decenije rada sa decom, trenerima i roditeljima."}
+              </p>
+            </div>
+          </aside>
+        )}
         <div className="prose-kmf" dangerouslySetInnerHTML={{ __html: tidyHtml(html) }} />
         <div className="mt-12 flex flex-wrap gap-4 border-t border-brand-50 pt-8">
           <ButtonLink href={t.enrollHref}>{t.common.enrollBtn}</ButtonLink>

@@ -36,6 +36,8 @@ const COPY = {
       slogan1: "Mali fudbal.",
       slogan2: "Velike mogućnosti!",
       imgAlt: "Polaznici škole malog fudbala KMF 21. Kragujevac sa trenerima",
+      badgeYear: "Osnovan 2009.",
+      badgeSeason: "18. sezona kontinuiranog rada",
     },
     statsLabel: "Klub u brojevima",
     stats: ["polaznika", "lokacije", "godina", "inkluzivni program"],
@@ -130,6 +132,8 @@ const COPY = {
       slogan1: "Small-sided football.",
       slogan2: "Great possibilities!",
       imgAlt: "Pupils of the KMF 21. Kragujevac futsal school with their coaches",
+      badgeYear: "Founded in 2009",
+      badgeSeason: "18th season of continuous work",
     },
     statsLabel: "The club in numbers",
     stats: ["participants", "locations", "years of age", "inclusion programme"],
@@ -233,6 +237,7 @@ export async function HomeContent({ lang }: { lang: Lang }) {
         "@type": ["Organization", "SportsOrganization"],
         "@id": `${SITE_URL}/#organization`,
         name: CLUB.legalName,
+        foundingDate: "2009",
         url: `${SITE_URL}/`,
         logo: { "@type": "ImageObject", url: `${SITE_URL}${LOGO_PATH}`, width: 150, height: 150 },
         image: `${SITE_URL}${LOGO_PATH}`,
@@ -263,7 +268,12 @@ export async function HomeContent({ lang }: { lang: Lang }) {
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/20 max-md:hidden" />
         <div className="mx-auto max-w-7xl px-5 pb-[calc(50vw+3.5rem)] pt-14 sm:pt-20 md:pb-36">
-          <p className="text-xs font-extrabold uppercase tracking-[0.3em] text-gold-400">{c.hero.eyebrow}</p>
+          <p className="inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full bg-gold-400 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-navy-950 shadow-lg">
+            <span>{c.hero.badgeYear}</span>
+            <span aria-hidden="true">•</span>
+            <span>{c.hero.badgeSeason}</span>
+          </p>
+          <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.3em] text-gold-400">{c.hero.eyebrow}</p>
           <h1 className="mt-3 max-w-xl text-[2rem] font-extrabold leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-6xl">
             {c.hero.l1} <br />
             {c.hero.l2}
