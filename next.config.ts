@@ -26,13 +26,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // www -> glavni domen (jedinstven kanonski host)
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.kmf21.rs" }],
-        destination: "https://kmf21.rs/:path*",
-        permanent: true,
-      },
       // stari WordPress URL-ovi
       { source: "/feed", destination: "/feed.xml", permanent: true },
       { source: "/o-futsalu", destination: "/o-malom-fudbalu/", permanent: true },
