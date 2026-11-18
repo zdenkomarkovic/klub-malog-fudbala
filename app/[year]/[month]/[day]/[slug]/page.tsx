@@ -72,6 +72,17 @@ export default async function PostPage({ params }: Props) {
           },
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Naslovna", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Vesti", item: `${SITE_URL}/vesti/` },
+            { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}${postPath(post)}` },
+          ],
+        }}
+      />
       <article className="mx-auto max-w-7xl px-5 py-10 sm:py-14">
         <nav aria-label="Putanja" className="text-sm text-muted">
           <Link href="/" className="hover:text-brand-700">

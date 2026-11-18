@@ -30,7 +30,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: `${SITE_NAME} - ${SITE_NAME}`, template: `%s - ${SITE_NAME}` },
+  title: { default: SITE_NAME, template: `%s - ${SITE_NAME}` },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
   alternates: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "sr_RS",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} - ${SITE_NAME}`,
+    title: SITE_NAME,
     description: SITE_DESCRIPTION,
     images: [{ url: LOGO_PATH, width: 150, height: 150, type: "image/png" }],
   },

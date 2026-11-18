@@ -7,6 +7,8 @@ import { ButtonLink } from "@/components/ui/Button";
 import { PAGE_PAIRS, T } from "@/lib/i18n";
 import { getCampMedia, getCompetitions, getInclusionGallery } from "@/lib/sanity";
 import { youtubeEmbed } from "@/lib/news";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
 
 /** Engleska stranica -> srpski slug (dele iste hero slike). */
 const EN_TO_SR: Record<string, string> = Object.fromEntries(
@@ -122,8 +124,36 @@ export async function ContentPage({ slug }: { slug: string }) {
         }
       : undefined;
 
+  const pageUrl = `${SITE_URL}/${page.slug}/`;
+  const homeUrl = `${SITE_URL}${isEn ? "/en/" : "/"}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: bareTitle(page.title, page.title),
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#organization` },
+        inLanguage: isEn ? "en" : "sr-RS",
+        ...(page.meta.modified && { dateModified: page.meta.modified }),
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: SITE_NAME, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: bareTitle(page.title, page.title), item: pageUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <main>
+      <JsonLd data={schema} />
       <PageHero
         title={bareTitle(page.title, page.title)}
         eyebrow={t.common.clubName}
