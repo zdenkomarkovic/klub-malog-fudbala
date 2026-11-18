@@ -38,7 +38,7 @@ export const NAV = {
     { href: "/inkluzija/", label: "Inkluzija" },
     { href: "/letnji-kamp-kopaonik/", label: "Kamp" },
     { href: "/vesti/", label: "Vesti" },
-    { href: "/arhiva/", label: "Arhiva" },
+    { href: "https://www.skolamalogfudbala.com/sr", label: "Arhiva" },
     { href: "/#kontakt", label: "Kontakt" },
   ],
   en: [
@@ -49,7 +49,7 @@ export const NAV = {
     { href: "/competitions/", label: "Competitions" },
     { href: "/inclusion/", label: "Inclusion" },
     { href: "/kopaonik-summer-camp/", label: "Summer camp" },
-    { href: "/arhiva/", label: "Archive" },
+    { href: "https://www.skolamalogfudbala.com/sr", label: "Archive" },
     { href: "/en/#kontakt", label: "Contact" },
   ],
 } as const;

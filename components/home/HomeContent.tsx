@@ -244,7 +244,7 @@ export async function HomeContent({ lang }: { lang: Lang }) {
         email: CLUB.email,
         telephone: CLUB.phone,
         address: { "@type": "PostalAddress", addressLocality: CLUB.city, addressCountry: "RS" },
-        sameAs: [SOCIAL.facebook, SOCIAL.facebookSkola, SOCIAL.instagram, SOCIAL.instagramInclusion, SOCIAL.youtube],
+        sameAs: [SOCIAL.facebookSkola, SOCIAL.instagram, SOCIAL.instagramInclusion, SOCIAL.youtube],
       },
     ],
   };
@@ -365,12 +365,12 @@ export async function HomeContent({ lang }: { lang: Lang }) {
             <ButtonLink href={c.team.href} variant="outline">{c.team.btn}</ButtonLink>
           </div>
         </div>
-        <ul className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
           {teamOnHome.map((m) => (
             <li key={m.name}>
               <Link href={c.team.href} className="group block overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-brand-50 transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/5] overflow-hidden bg-brand-50">
-                  <Image src={m.photo} alt={m.name} fill sizes="(min-width: 768px) 20vw, 45vw" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                <div className="relative aspect-[1024/820] overflow-hidden bg-brand-50">
+                  <Image src={m.photo} alt={m.name} fill sizes="(min-width: 768px) 33vw, 45vw" className="object-cover object-top transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-3 text-center">
                   <h3 className="text-sm font-extrabold text-navy-900">{m.name}</h3>

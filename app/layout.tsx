@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   verification: { google: GOOGLE_SITE_VERIFICATION },
   // Isto kao na starom sajtu (Yoast): <meta property="article:publisher">
-  other: { "article:publisher": SOCIAL.facebook },
+  other: { "article:publisher": SOCIAL.facebookSkola },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

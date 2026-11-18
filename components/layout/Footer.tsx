@@ -8,8 +8,7 @@ import { NAV, T, langOf } from "@/lib/i18n";
 import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, YoutubeIcon } from "@/components/ui/Icons";
 
 const social = [
-  { href: SOCIAL.facebook, label: "Facebook", Icon: FacebookIcon },
-  { href: SOCIAL.facebookSkola, label: "Facebook – Škola malog fudbala", Icon: FacebookIcon },
+  { href: SOCIAL.facebookSkola, label: "Facebook", Icon: FacebookIcon },
   { href: SOCIAL.instagram, label: "Instagram", Icon: InstagramIcon },
   { href: SOCIAL.instagramInclusion, label: "Instagram – Futsal21 inkluzija", Icon: InstagramIcon },
   { href: SOCIAL.youtube, label: "YouTube", Icon: YoutubeIcon },
@@ -66,7 +65,13 @@ export function Footer() {
           <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {[...links.slice(0, half), ...links.slice(half)].map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-white">{l.label}</Link>
+                <Link
+                  href={l.href}
+                  {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="hover:text-white"
+                >
+                  {l.label}
+                </Link>
               </li>
             ))}
             <li>

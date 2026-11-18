@@ -73,7 +73,7 @@ export async function TeamPage({ lang }: { lang: "sr" | "en" }) {
                 fill
                 priority={i < 2}
                 sizes="(min-width: 640px) 220px, 100vw"
-                className="object-cover object-top"
+                className={m.name.includes("Branislav") ? "object-contain object-center" : "object-cover object-top"}
               />
             </div>
             <div>

@@ -3,7 +3,6 @@ import { SITE_URL } from "@/lib/constants";
 import { allPages, postPath } from "@/lib/content";
 import { getAllPosts, getNewsPages } from "@/lib/news";
 import { newsPath } from "@/components/home/NewsList";
-import { ARCHIVE_PAGES, archivePagePath } from "@/lib/archive";
 
 export const revalidate = 60;
 
@@ -29,17 +28,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "weekly" as const,
     priority: 0.4,
   }));
-  const archivePages = Array.from({ length: ARCHIVE_PAGES }, (_, i) => ({
-    url: `${SITE_URL}${archivePagePath(i + 1)}`,
-    changeFrequency: "yearly" as const,
-    priority: 0.3,
-  }));
   return [
     { url: `${SITE_URL}/`, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/en/`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     ...pages,
     ...newsPages,
-    ...archivePages,
     ...posts,
   ];
 }
